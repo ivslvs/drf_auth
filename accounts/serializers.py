@@ -18,7 +18,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         password = self.validated_data['password']
 
         if account.is_superuser is False:
-            account.is_active = True
+            account.is_active = False
 
         account.set_password(password)
         account.save()

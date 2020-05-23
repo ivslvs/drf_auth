@@ -20,7 +20,7 @@ class User(AbstractUser):
         (DEACTIVATION, 'require deactivation'),
     ]
     status = models.CharField(max_length=2, choices=STATUS_CHOICES, default=ACTIVATION)
-    is_active = models.BooleanField(default=False)
+    is_active = models.BooleanField(default=True)
 
     USERNAME_FIELD = 'email'
     REQUIRED_FIELDS = ['username', 'first_name', 'last_name', 'passport_number']
