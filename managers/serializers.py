@@ -1,5 +1,3 @@
-from django.core.mail import send_mail
-from django.conf import settings
 from rest_framework import serializers
 from accounts.models import User
 
@@ -22,9 +20,6 @@ class UserStatusUpdateSerializer(serializers.ModelSerializer):
 
         elif instance.status == 'RD':
             User.objects.filter(pk=instance.pk).update(is_active=False)
-
-        send_mail(subject='Registration confirmation', message="Your registration have completed successfully.",
-                  recipient_list=[instance.email], from_email=settings.EMAIL_HOST_USER)
 
         return User.objects.get(pk=instance.pk)
 

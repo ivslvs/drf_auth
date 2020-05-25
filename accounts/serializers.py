@@ -1,7 +1,5 @@
 from rest_framework import serializers
 from .models import User
-from django.core.mail import send_mail
-from django.conf import settings
 
 
 class RegistrationSerializer(serializers.ModelSerializer):
@@ -21,11 +19,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
         if account.is_superuser is False:
             account.is_active = False
-        if User.is_superuser is False:
-            User.is_active = False
 
         account.set_password(password)
         account.save()
-
-        send_mail(subject='Registration confirmation', message="Please, confirm new client's registration.",
-                  recipient_list=[settings.EMAIL_HOST_USER], from_email='new_client@email.com')
