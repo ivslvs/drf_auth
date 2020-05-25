@@ -21,8 +21,6 @@ class RegistrationSerializer(serializers.ModelSerializer):
 
         if account.is_superuser is False:
             account.is_active = False
-        if User.is_superuser is False:
-            User.is_active = False
 
         account.set_password(password)
         account.save()
