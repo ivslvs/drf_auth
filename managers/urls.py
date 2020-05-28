@@ -1,6 +1,7 @@
 from django.urls import path
 from .views import ClientActivationList, ClientDeactivationList, ClientStatusUpdate
 
+
 urlpatterns = [
     path('activation/', ClientActivationList.as_view(), name='activation_list'),
     path('activation/<int:pk>/', ClientStatusUpdate.as_view(), name='client_activation'),

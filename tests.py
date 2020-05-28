@@ -68,7 +68,7 @@ class LoginTestCase(APITestCase):
     def setUp(self):
         User.objects.create_user(email='anna@email.com', first_name='Anna', last_name='Reed',
                                  passport_number='678qwert', password='i-keep-running', username="anna")
-        User.objects.filter(pk=1).update(is_active=True)
+        User.objects.filter(id=1).update(is_active=True)
 
     def test_all_fields(self):
         response = self.client.login(email='anna@email.com', password='i-keep-running')
@@ -105,6 +105,8 @@ class ActivationDeactivationTestCase(APITestCase):
     client_activation = reverse('client_activation', kwargs={"pk": 1})
     client_deactivation = reverse('client_deactivation', kwargs={"pk": 2})
 
+    url = 'http://testserver'
+
     def setUp(self):
         User.objects.create_user(email='anna@email.com', first_name='Anna', last_name='Reed',
                                  passport_number='678qwert', password='i-keep-running', username="anna")
@@ -114,27 +116,28 @@ class ActivationDeactivationTestCase(APITestCase):
                                  passport_number='62772qwert', password='i-keep-jumping', username="dan")
 
     def test_activation(self):
+        User.objects.filter(is_active=True).update(is_active=False)
         response = self.client.get(self.activation_list)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, [{"pk": 1, "email": "anna@email.com"},
-                                         {"pk": 2, "email": "peter@email.com"},
-                                         {"pk": 3, "email": "dan@email.com"}])
+        self.assertEqual(response.data, [{"client": self.url + reverse('client_activation', kwargs={'pk': 1})},
+                                         {"client": self.url + reverse('client_activation', kwargs={'pk': 2})},
+                                         {"client": self.url + reverse('client_activation', kwargs={'pk': 3})}])
 
     def test_client_activation(self):
         response = self.client.put(self.client_activation, {"email": "anna@email.com"}, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, {"pk": 1, "email": "anna@email.com", "status": "RA", "is_active": True})
+        self.assertEqual(response.data, {"id": 1, "status": "RA", "is_active": True})
 
     def test_deactivation(self):
         User.objects.filter(status='RA').update(status='RD', is_active=True)
         response = self.client.get(self.deactivation_list)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, [{"pk": 1, "email": "anna@email.com"},
-                                         {"pk": 2, "email": "peter@email.com"},
-                                         {"pk": 3, "email": "dan@email.com"}])
+        self.assertEqual(response.data, [{"client": self.url + reverse('client_deactivation', kwargs={'pk': 1})},
+                                         {"client": self.url + reverse('client_deactivation', kwargs={'pk': 2})},
+                                         {"client": self.url + reverse('client_deactivation', kwargs={'pk': 3})}])
 
     def test_client_deactivation(self):
-        User.objects.filter(pk=2).update(status='RD')
+        User.objects.filter(id=2).update(status='RD')
         response = self.client.put(self.client_deactivation, {"email": "peter@email.com"}, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
 
@@ -145,7 +148,6 @@ class ActivationDeactivationTestCase(APITestCase):
             "password": "i-keep-running",
             "passport_number": "678qwert"
         }
-        User.objects.filter(pk=1).update(status='RD')
         response = self.client.put(self.deletion, data, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
         self.assertEqual(response.data, {"pk": 1, "email": "anna@email.com"})

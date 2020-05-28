@@ -11,8 +11,8 @@ class BalanceSerializers(serializers.ModelSerializer):
 class ClientDeletionSerializer(serializers.ModelSerializer):
     class Meta:
         model = User
-        fields = ['pk', 'email']
+        fields = ['id', 'email']
 
     def update(self, instance, validated_data):
-        User.objects.filter(pk=instance.pk).update(status='RD')
-        return User.objects.get(pk=instance.pk)
+        User.objects.filter(id=instance.id).update(status='RD')
+        return User.objects.get(id=instance.id)

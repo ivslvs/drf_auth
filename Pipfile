@@ -7,10 +7,9 @@ verify_ssl = true
 
 [packages]
 django = "*"
-djangorestframework = "==3.9"
+djangorestframework = "*"
 django-rest-auth = "*"
-djoser = "*"
-redoc-cli = "*"
+drf-yasg = "*"
 
 [requires]
 python_version = "3.6"
