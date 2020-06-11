@@ -1,8 +1,8 @@
 from rest_framework.authentication import TokenAuthentication
 from rest_framework.generics import RetrieveAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
-from .serializers import BalanceSerializers, ClientDeletionSerializer
-from accounts.models import Balance, User
+from .serializers import BalanceSerializers, ClientUnregisterSerializer
+from users.models import Balance, User
 
 
 class ClientBalanceAPIView(RetrieveAPIView):
@@ -10,14 +10,18 @@ class ClientBalanceAPIView(RetrieveAPIView):
 
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
-    queryset = Balance.objects.all()  # Balance.objects.get(email=pk).balance
+    queryset = Balance.objects.all()
     serializer_class = BalanceSerializers
 
+    def get_queryset(self):
+        return self.queryset.filter(client=self.request.user)
 
-class ClientDeletionAPIView(UpdateAPIView):
+
+class ClientUnregisterAPIView(UpdateAPIView):
     """Client's endpoint to leave the system"""
 
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAuthenticated]
     queryset = User.objects.all()
-    serializer_class = ClientDeletionSerializer
+    serializer_class = ClientUnregisterSerializer
+

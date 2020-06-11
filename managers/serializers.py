@@ -17,7 +17,6 @@ class ClientStatusSerializer(serializers.ModelSerializer):
         model = User
         fields = ['id', 'status', 'is_active']
 
-    # нужна ли валидация
     def update(self, instance, validated_data):
 
         if instance.status == 'RA':

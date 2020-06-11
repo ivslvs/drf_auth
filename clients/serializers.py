@@ -1,5 +1,5 @@
 from rest_framework import serializers
-from accounts.models import Balance, User
+from users.models import Balance, User
 
 
 class BalanceSerializers(serializers.ModelSerializer):
@@ -8,11 +8,9 @@ class BalanceSerializers(serializers.ModelSerializer):
         fields = '__all__'
 
 
-class ClientDeletionSerializer(serializers.ModelSerializer):
+class ClientUnregisterSerializer(serializers.ModelSerializer):
+    status = serializers.HiddenField(default=User.DEACTIVATION)
+
     class Meta:
         model = User
-        fields = ['id', 'email']
-
-    def update(self, instance, validated_data):
-        User.objects.filter(id=instance.id).update(status='RD')
-        return User.objects.get(id=instance.id)
+        fields = ['id', 'email', 'status']
