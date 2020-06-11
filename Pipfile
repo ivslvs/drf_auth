@@ -10,6 +10,8 @@ django = "*"
 djangorestframework = "*"
 django-rest-auth = "*"
 drf-yasg = "*"
+django-filter = "*"
+
 
 [requires]
-python_version = "3.6"
+python_version = "3.8"
