@@ -17,7 +17,8 @@ class RegistrationSerializer(serializers.ModelSerializer):
         user = super().create(validated_data)
         user.set_password(validated_data['password'])
         user.save()
-        return user
 
         # send_mail(subject='Registration confirmation', message="Please, confirm new client's registration.",
         #           recipient_list=[settings.EMAIL_HOST_USER], from_email='new_client@email.com')
+
+        return user
