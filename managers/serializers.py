@@ -5,14 +5,12 @@ from users.models import User
 
 
 class ActivationDeactivationSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = User
         fields = ['id', 'email']
 
 
 class ClientStatusSerializer(serializers.ModelSerializer):
-
     class Meta:
         model = User
         fields = ['id', 'status', 'is_active']

@@ -16,8 +16,8 @@ class ClientActivationDeactivationList(ListAPIView):
     filter_fields = ['status']
 
 
-class ClientUnregisterUpdate(UpdateAPIView):
-    """Manager's endpoint for client deactivation"""
+class ClientStatusUpdate(UpdateAPIView):
+    """Manager's endpoint for client activation or deactivation"""
 
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAdminUser]
