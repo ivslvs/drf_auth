@@ -53,17 +53,17 @@ The routes:
 
 User's registration, login, logout:
 
-POST /register/ - User's endpoint for registration 
+- POST /register/ - User's endpoint for registration 
 
 Exp body: {"username": "testuser", "email": "testuser@email.com", "first_name": "testuser", "last_name": "testuser", "passport_number": "546fgh", "password": "testuser"}
 
 
-POST /rest-auth/login/ - User's login
+- POST /rest-auth/login/ - User's login
 
 Exp body: {"username": "testuser", "email": "testuser@email.com", "password": "testuser"}
 
 
-POST /rest-auth/logout/ - Calls Django logout method and delete the Token object assigned to the current User objectexp.
+- POST /rest-auth/logout/ - Calls Django logout method and delete the Token object assigned to the current User objectexp.
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
@@ -71,46 +71,49 @@ Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 Managers' routes:
 
-GET /api/v1/managers/activation_deactivation/?status=RA - Manager's endpoint to see the clients list for activation
+- GET /api/v1/managers/activation_deactivation/?status=RA - Manager's endpoint to see the clients list for activation
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 
-GET /api/v1/managers/activation_deactivation/?status=RD - Manager's endpoint to see the clients list for deactivation
+- GET /api/v1/managers/activation_deactivation/?status=RD - Manager's endpoint to see the clients list for deactivation
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 
-GET /api/v1/managers/activation_deactivation/?status=A - Manager's endpoint to see activated clients list
+- GET /api/v1/managers/activation_deactivation/?status=A - Manager's endpoint to see activated clients list
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 
-GET /api/v1/managers/activation_deactivation/?status=D - Manager's endpoint to see deactivated clients list
+- GET /api/v1/managers/activation_deactivation/?status=D - Manager's endpoint to see deactivated clients list
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 
-PUT /api/v1/managers/activation/{id}/ - Manager's endpoint for client activation
+- PUT /api/v1/managers/activation/{id}/ - Manager's endpoint for client activation
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 
-PUT /api/v1/managers/deactivation/{id}/ - Manager's endpoint for client deactivation
+- PUT /api/v1/managers/deactivation/{id}/ - Manager's endpoint for client deactivation
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
+
 
 
 
 Clients' routes:
 
 
-GET /api/v1/clients/balance/{id}/ - Client's endpoint to see balance
+
+- GET /api/v1/clients/balance/{id}/ - Client's endpoint to see balance
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 
-PUT /api/v1/clients/deletion/{id}/ - Client's endpoint to leave the system
+
+- PUT /api/v1/clients/deletion/{id}/ - Client's endpoint to leave the system
 
 Exp body: {"email": "testuser@email.com"}
 
