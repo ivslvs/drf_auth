@@ -1,7 +1,10 @@
-Application description
+This application is written in Python using Django REST framework.
+
+
+Application description:
 
 We have two main roles. Clients and Managers.
-Clients can register, login by pin code and close their accounts.
+Clients can register, login and close their accounts.
 Managers are created from admin panel and can approve user
 registration and accounts closing.
 
@@ -15,9 +18,7 @@ After registration account must be in inactive state, until
 manager will approve it.
 
 - When account has been accepted, client can enter the profile to
-se balance. For this action, client should provide PIN code to
-specific endpoint (use whatever method you would like to
-provide PIN code)
+se balance.
 
 - Client can close his account in order to leave our system. Then
 profile become inactive and waiting for manager to confirm this
