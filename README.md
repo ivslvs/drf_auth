@@ -52,7 +52,7 @@ You can use swagger or routes below
 
 # The routes:
 
-User's registration, login, logout:
+### User's registration, login, logout:
 
 - POST /register/ - User's endpoint for registration
 
@@ -66,7 +66,7 @@ Exp body: {"username": "testuser", "email": "testuser@email.com", "password": "t
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-###### Managers' routes:
+### Managers' routes:
 
 - GET /api/v1/managers/activation_deactivation/?status=RA - Manager's endpoint to see the clients list for activation
 
@@ -92,7 +92,7 @@ Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-###### Clients' routes:
+### Clients' routes:
 
 - GET /api/v1/clients/balance/{id}/ - Client's endpoint to see balance
 
