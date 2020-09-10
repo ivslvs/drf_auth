@@ -1,7 +1,7 @@
 This application is written in Python using Django REST framework.
 
 
-Application description:
+# Application description:
 
 We have two main roles. Clients and Managers.
 Clients can register, login and close their accounts.
@@ -9,7 +9,7 @@ Managers are created from admin panel and can approve user
 registration and accounts closing.
 
 
-Clients features
+## Clients features
 
 - Clients can register through the POST request to specified
 endpoint. Necessary field on registration step: first_name,
@@ -25,7 +25,7 @@ profile become inactive and waiting for manager to confirm this
 action.
 
 
-Manager features
+## Manager features
 
 - Managers are added from admin panel by superadmin
 
@@ -36,7 +36,7 @@ requests for approval, and then approve them one by one
 confirm the deletion
 
 
-Installing:
+# Installing:
 
 pipenv install
 
@@ -50,7 +50,7 @@ python manage.py runserver
 
 You can use swagger or routes below
 
-The routes:
+# The routes:
 
 User's registration, login, logout:
 
