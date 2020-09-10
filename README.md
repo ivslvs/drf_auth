@@ -48,7 +48,7 @@ python manage.py runserver
 
 
 
-You can use swagger or routes below + admin panel
+You can use swagger or routes below
 
 The routes:
 
