@@ -9,7 +9,7 @@ Managers are created from admin panel and can approve user
 registration and accounts closing.
 
 
-## Clients features
+## Implemented Clients features
 
 - Clients can register through the POST request to specified
 endpoint. Necessary field on registration step: first_name,
@@ -25,7 +25,7 @@ profile become inactive and waiting for manager to confirm this
 action.
 
 
-## Manager features
+## Implemented Manager features
 
 - Managers are added from admin panel by superadmin
 
