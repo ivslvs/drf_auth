@@ -17,7 +17,6 @@ class RegistrationTestCase1(APITestCase):
         self.assertEqual(response.data, {'email': 'marie@email.com', 'first_name': 'Marie', 'last_name': 'Snyder',
                                          'passport_number': '123qwer', 'username': 'marie'})
 
-
     def test_missing_email_field(self):
         data = {
             'first_name': 'Marie', 'last_name': 'Snyder', 'passport_number': '123qwer',

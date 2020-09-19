@@ -1,17 +1,14 @@
 from django.urls import reverse
 from rest_framework.test import APITestCase
 from rest_framework import status
-from rest_framework.authtoken.models import Token
-from django.test.client import Client
-
 from users.models import User
 
 
 class LoginTestCase(APITestCase):
 
     def setUp(self):
-        user = User.objects.create_user(email='anna@email.com', first_name='Anna', last_name='Reed',
-                                        passport_number='678qwert', password='i-keep-running', username="anna")
+        User.objects.create_user(email='anna@email.com', first_name='Anna', last_name='Reed',
+                                 passport_number='678qwert', password='i-keep-running', username="anna")
         User.objects.filter(id=1).update(is_active=True)
 
     def test_all_fields(self):

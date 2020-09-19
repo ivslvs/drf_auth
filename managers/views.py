@@ -6,9 +6,8 @@ from users.models import User
 
 
 class ClientActivationDeactivationList(ListAPIView):
-    """Manager's endpoint to see the clients list for activation
-    and list for deactivation"""
-
+    """Manager's endpoint to see the clients list for
+    activation or deactivation"""
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAdminUser]
     queryset = User.objects.all()
@@ -18,7 +17,6 @@ class ClientActivationDeactivationList(ListAPIView):
 
 class ClientStatusUpdate(UpdateAPIView):
     """Manager's endpoint for client activation or deactivation"""
-
     authentication_classes = [TokenAuthentication]
     permission_classes = [IsAdminUser]
     queryset = User.objects.all()

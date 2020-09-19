@@ -4,8 +4,7 @@ from .models import User
 
 
 class MyUserAdmin(UserAdmin):
-    """Override admin panel"""
-
+    """Extended admin panel"""
     list_display = ('id', 'email', 'first_name', 'last_name', 'date_joined', 'last_login',
                     'is_staff', 'is_active', 'is_superuser')
     search_fields = ('email',)

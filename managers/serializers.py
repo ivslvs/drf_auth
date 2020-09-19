@@ -5,12 +5,14 @@ from users.models import User
 
 
 class ActivationDeactivationSerializer(serializers.ModelSerializer):
+    """Clients list for activation or deactivation"""
     class Meta:
         model = User
         fields = ['id', 'email']
 
 
 class ClientStatusSerializer(serializers.ModelSerializer):
+    """Changing User's status"""
     class Meta:
         model = User
         fields = ['id', 'status', 'is_active']
@@ -27,6 +29,7 @@ class ClientStatusSerializer(serializers.ModelSerializer):
 
         instance.save()
 
+        # sending email to User after Manager's confirmation
         # send_mail(subject='Registration confirmation', message="Your registration have completed successfully.",
         #           recipient_list=[instance.email], from_email=settings.EMAIL_HOST_USER)
 

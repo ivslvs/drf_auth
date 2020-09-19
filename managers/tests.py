@@ -6,9 +6,9 @@ from users.models import User
 
 class ActivationDeactivationTestCase(APITestCase):
     activation_deactivation_list = reverse('activation/deactivation_list')
-    deletion = reverse('deletion', kwargs={"pk": 1})
-    client_activation = reverse('client_activation', kwargs={"pk": 1})
-    client_deactivation = reverse('client_deactivation', kwargs={"pk": 2})
+    deletion = reverse('deletion', kwargs={"pk": 15})
+    client_activation = reverse('client_activation', kwargs={"pk": 9})
+    client_deactivation = reverse('client_deactivation', kwargs={"pk": 13})
 
     url = 'http://testserver'
 
@@ -31,25 +31,25 @@ class ActivationDeactivationTestCase(APITestCase):
         response = self.client.get(self.activation_deactivation_list + '?status=RA',
                                    HTTP_AUTHORIZATION='Token ' + self.token_key, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, [{"id": 2, "email": "peter@email.com"},
-                                         {"id": 3, "email": "dan@email.com"}])
+        self.assertEqual(response.data, [{"id": 7, "email": "peter@email.com"},
+                                         {"id": 8, "email": "dan@email.com"}])
 
     def test_client_activation(self):
         response = self.client.put(self.client_activation, {"email": "anna@email.com"},
                                    HTTP_AUTHORIZATION='Token ' + self.token_key, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, {"id": 1, "status": "A", "is_active": True})
+        self.assertEqual(response.data, {"id": 9, "status": "A", "is_active": True})
 
     def test_deactivation(self):
         User.objects.filter(last_name='Snow').update(status='RD', is_active=True)
         response = self.client.get(self.activation_deactivation_list + '?status=RD',
                                    HTTP_AUTHORIZATION='Token ' + self.token_key)
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, [{"id": 2, "email": "peter@email.com"},
-                                         {"id": 3, "email": "dan@email.com"}])
+        self.assertEqual(response.data, [{"id": 19, "email": "peter@email.com"},
+                                         {"id": 20, "email": "dan@email.com"}])
 
     def test_client_deactivation(self):
-        User.objects.filter(id=2).update(status='RD')
+        User.objects.filter(id=13).update(status='RD')
         response = self.client.put(self.client_deactivation, {"email": "peter@email.com"},
                                    HTTP_AUTHORIZATION='Token ' + self.token_key, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
@@ -63,4 +63,6 @@ class ActivationDeactivationTestCase(APITestCase):
         }
         response = self.client.put(self.deletion, data, HTTP_AUTHORIZATION='Token ' + self.token_key, format='json')
         self.assertEqual(response.status_code, status.HTTP_200_OK)
-        self.assertEqual(response.data, {"id": 1, "email": "anna@email.com"})
+        self.assertEqual(response.data, {"id": 15, "email": "anna@email.com"})
+
+

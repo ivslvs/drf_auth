@@ -6,13 +6,6 @@ from .models import User
 
 class RegistrationAPIView(CreateAPIView):
     """User's endpoint for registration"""
-
     permission_classes = [AllowAny]
     queryset = User.objects.all()
     serializer_class = RegistrationSerializer
-
-
-
-
-
-

@@ -1,10 +1,15 @@
 from rest_framework import serializers
 from .models import User
+import logging
 from django.core.mail import send_mail
 from django.conf import settings
 
+logging.basicConfig(filename='registration.log')
+logger = logging.getLogger(__name__)
+
 
 class RegistrationSerializer(serializers.ModelSerializer):
+    """User's registration"""
     is_active = serializers.HiddenField(default=False)
     status = serializers.HiddenField(default=User.ACTIVATION)
 
@@ -14,6 +19,7 @@ class RegistrationSerializer(serializers.ModelSerializer):
         extra_kwargs = {'password': {'write_only': True}}
 
     def create(self, validated_data):
+        logger.warn('Something wrong!')
         user = super().create(validated_data)
         user.set_password(validated_data['password'])
         user.save()
