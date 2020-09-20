@@ -78,10 +78,6 @@ Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-<<<<<<< HEAD
-
-=======
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 - GET /api/v1/managers/activation_deactivation/?status=A - Manager's endpoint to see activated clients list
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
