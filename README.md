@@ -28,7 +28,7 @@ profile become inactive and waiting for manager to confirm this
 action.
 
 
-## Implemented Manager features
+## Implemented Managers features
 
 - Managers are added from admin panel by superadmin
 
