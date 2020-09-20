@@ -1,4 +1,7 @@
-This application is written in Python using Django REST framework.
+ This application is written in Python using Django REST framework.
+- Python 3.8
+- Django REST Framework
+- PostgreSQL
 
 
 # Application description:
