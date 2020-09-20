@@ -1,15 +1,12 @@
-This application is written in Python using Django REST framework.
-
-
-# Application description:
+Application description
 
 We have two main roles. Clients and Managers.
-Clients can register, login and close their accounts.
+Clients can register, login by pin code and close their accounts.
 Managers are created from admin panel and can approve user
 registration and accounts closing.
 
 
-## Implemented Clients features
+Clients features
 
 - Clients can register through the POST request to specified
 endpoint. Necessary field on registration step: first_name,
@@ -18,14 +15,16 @@ After registration account must be in inactive state, until
 manager will approve it.
 
 - When account has been accepted, client can enter the profile to
-se balance.
+se balance. For this action, client should provide PIN code to
+specific endpoint (use whatever method you would like to
+provide PIN code)
 
 - Client can close his account in order to leave our system. Then
 profile become inactive and waiting for manager to confirm this
 action.
 
 
-## Implemented Manager features
+Manager features
 
 - Managers are added from admin panel by superadmin
 
@@ -36,11 +35,7 @@ requests for approval, and then approve them one by one
 confirm the deletion
 
 
-<<<<<<< HEAD
 Installing:
-=======
-# Installing:
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 
 pipenv install
 
@@ -50,7 +45,6 @@ pipenv install --dev
 
 python manage.py runserver
 
-<<<<<<< HEAD
 You can use /swagger/ or routes below + admin panel
 
 
@@ -64,114 +58,67 @@ User's registration, login, logout:
 Exp body: {"username": "testuser", "email": "testuser@email.com", "first_name": "testuser", "last_name": "testuser", "passport_number": "546fgh", "password": "testuser"}
 
 
-=======
-
-
-You can use swagger or routes below
-
-# The routes:
-
-#### User's registration, login, logout:
-
-- POST /register/ - User's endpoint for registration
-
-Exp body: {"username": "testuser", "email": "testuser@email.com", "first_name": "testuser", "last_name": "testuser", "passport_number": "546fgh", "password": "testuser"}
-
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 - POST /rest-auth/login/ - User's login
 
 Exp body: {"username": "testuser", "email": "testuser@email.com", "password": "testuser"}
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 - POST /rest-auth/logout/ - Calls Django logout method and delete the Token object assigned to the current User objectexp.
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-<<<<<<< HEAD
 
 
 Managers' routes:
-=======
-#### Managers' routes:
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 
 - GET /api/v1/managers/activation_deactivation/?status=RA - Manager's endpoint to see the clients list for activation
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 - GET /api/v1/managers/activation_deactivation/?status=RD - Manager's endpoint to see the clients list for deactivation
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 - GET /api/v1/managers/activation_deactivation/?status=A - Manager's endpoint to see activated clients list
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 - GET /api/v1/managers/activation_deactivation/?status=D - Manager's endpoint to see deactivated clients list
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 - PUT /api/v1/managers/activation/{id}/ - Manager's endpoint for client activation
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-<<<<<<< HEAD
 
-=======
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 - PUT /api/v1/managers/deactivation/{id}/ - Manager's endpoint for client deactivation
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-<<<<<<< HEAD
 
 
 
 Clients' routes:
 
 
-=======
-#### Clients' routes:
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 
 - GET /api/v1/clients/balance/{id}/ - Client's endpoint to see balance
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
-<<<<<<< HEAD
 
 
-=======
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
 - PUT /api/v1/clients/deletion/{id}/ - Client's endpoint to leave the system
 
 Exp body: {"email": "testuser@email.com"}
 
-<<<<<<< HEAD
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
 
 
-=======
-Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
->>>>>>> 0c33e8960c71c266253ef44fff694ee4dfb3b480
