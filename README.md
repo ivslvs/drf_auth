@@ -51,19 +51,19 @@ You can use /swagger/ or routes below + admin panel
 
 # The routes:
 
-#### User's registration, login, logout:
+#### User registration, login, logout:
 
 - POST /register/ - User's endpoint for registration
 
 Exp body: {"username": "testuser", "email": "testuser@email.com", "first_name": "testuser", "last_name": "testuser", "passport_number": "546fgh", "password": "testuser"}
 
 
-- POST /rest-auth/login/ - User's login
+- POST /rest-auth/login/ - User login
 
 Exp body: {"username": "testuser", "email": "testuser@email.com", "password": "testuser"}
 
 
-- POST /rest-auth/logout/ - Calls Django logout method and delete the Token object assigned to the current User objectexp.
+- POST /rest-auth/logout/ - Calls Django logout method and delete the Token object assigned to the current User object.
 
 Exp Headers: Token de1d046282563426b00aae569b1c58de6d8c7f17
 
