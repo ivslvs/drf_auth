@@ -2,7 +2,7 @@ from django.urls import path
 from .views import ClientBalanceAPIView, ClientUnregisterAPIView
 
 urlpatterns = [
-    path('balance/<int:pk>/', ClientBalanceAPIView.as_view(), name='balance'),
-    path('deletion/<int:pk>/', ClientUnregisterAPIView.as_view(), name='deletion'),
+    path('<int:pk>/balance', ClientBalanceAPIView.as_view(), name='balance'),
+    path('<int:pk>/deletion', ClientUnregisterAPIView.as_view(), name='deletion'),
 
 ]
