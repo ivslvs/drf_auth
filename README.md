@@ -5,7 +5,7 @@
 - Docker
 
 
-# Application description:
+# Application description
 
 We have two main roles. Clients and Managers.
 Clients can register, login and close their accounts.
