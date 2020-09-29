@@ -12,7 +12,7 @@ SECRET_KEY = ')p5)0duv8x96eedm8wm%z841oeh=uu5do$yoom6%3d2lu^871f'
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = True
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ['*']
 
 # Application definition
 
@@ -31,7 +31,6 @@ INSTALLED_APPS = [
     'clients',
     'managers',
 
-    'drf_yasg',
     'rest_auth',
     'django_filters',
 
@@ -73,11 +72,11 @@ WSGI_APPLICATION = 'drf_api.wsgi.application'
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql_psycopg2',
-        'NAME': 'drf_api',
-        'USER': 'drf_api_user',
-        'PASSWORD': '123456789',
-        'HOST': 'localhost',
-        'PORT': '',
+        'NAME': 'finance_db',
+        'USER': 'finance_db_user',
+        'PASSWORD': '1234',
+        'HOST': 'db',
+        'PORT': '5432',
         'TEST': {
             'NAME': 'test_finance',
         },
@@ -129,7 +128,6 @@ AUTH_USER_MODEL = 'users.User'
 REST_FRAMEWORK = {
     'DEFAULT_AUTHENTICATION_CLASSES': [
         'rest_framework.authentication.TokenAuthentication',
-        # 'rest_framework_simplejwt.authentication.JWTAuthentication',
     ],
     'DEFAULT_PERMISSION_CLASSES': [
         'rest_framework.permissions.IsAdminUser',
@@ -146,12 +144,3 @@ EMAIL_PORT = 587
 EMAIL_HOST_USER = 'youremail@email.com'
 EMAIL_HOST_PASSWORD = ''
 
-SWAGGER_SETTINGS = {
-    'SECURITY_DEFINITIONS': {
-        'api_key': {
-            'type': 'apiKey',
-            'in': 'header',
-            'name': 'Authorization'
-        }
-    },
-}

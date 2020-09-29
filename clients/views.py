@@ -3,7 +3,6 @@ from rest_framework.generics import RetrieveAPIView, UpdateAPIView
 from rest_framework.permissions import IsAuthenticated
 from .serializers import BalanceSerializers, ClientUnregisterSerializer
 from users.models import User, Balance
-import logging
 
 
 class ClientBalanceAPIView(RetrieveAPIView):
