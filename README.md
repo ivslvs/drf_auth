@@ -1,16 +1,17 @@
+  # Application description
  This application is written in Python using Django REST framework.
+
+We have two main roles. Clients and Managers.
+
+Clients can register, login and close their accounts.
+
+Managers are created from admin panel and can approve user
+registration and accounts closing.
+
 - Python 3.8
 - Django REST Framework
 - PostgreSQL
 - Docker
-
-
-# Application description
-
-We have two main roles. Clients and Managers.
-Clients can register, login and close their accounts.
-Managers are created from admin panel and can approve user
-registration and accounts closing.
 
 
 ## Implemented Clients features
