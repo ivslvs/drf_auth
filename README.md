@@ -23,7 +23,7 @@ After registration account must be in inactive state, until
 manager will approve it.
 
 - When account has been accepted, client can enter the profile to
-se balance.
+see balance.
 
 - Client can close his account in order to leave our system. Then
 profile become inactive and waiting for manager to confirm this
